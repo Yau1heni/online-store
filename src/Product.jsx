@@ -4,6 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import arrow from './assets/img/arrowBack.svg'
 import cartWhite from './assets/img/cartWhite.svg'
 import rating from './assets/img/rating.svg'
+import { Reviews } from './Reviews'
 
 export const Product = () => {
     const [product, setProduct] = useState(null)
@@ -50,6 +51,7 @@ export const Product = () => {
                     </button>
                 </div>
             </div>
+            <Reviews />
         </div>
     )
 }
