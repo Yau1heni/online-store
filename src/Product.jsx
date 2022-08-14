@@ -21,7 +21,14 @@ export const Product = () => {
             )
             .then((res) => setProduct(res.data))
     }, [])
+    const [isProductInCart, setIsProductIncart] = useState(false)
+
+    const addProductToCartHandler = () => {
+        alert('Товар успешно добавлен в корзину')
+        setIsProductIncart(true)
+    }
     if (product === null) return <div>Loading...</div>
+
     return (
         <div>
             <div className='arrowBack'>
@@ -30,7 +37,6 @@ export const Product = () => {
                     Back to Best Seller
                 </button>
             </div>
-
             <div className='product'>
                 <img src={product.image} alt='' />
                 <div className='info'>
@@ -45,9 +51,9 @@ export const Product = () => {
                         <p>{product.category}</p>
                     </div>
                     <p className='description'>{product.description}</p>
-                    <button>
-                        <img src={cartWhite} alt='' />
-                        Add to cart
+                    <button onClick={addProductToCartHandler} >
+                        <img src={cartWhite} alt="" />
+                        {isProductInCart ? 'Go to cart' : 'Add to cart'}
                     </button>
                 </div>
             </div>
